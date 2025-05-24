@@ -1,5 +1,6 @@
 package model.dao.impl;
 
+import db.ConnectionFactory;
 import model.dao.ProdutoDao;
 import model.entities.Produto;
 
@@ -12,10 +13,7 @@ public class ProdutoDaoJDBC implements ProdutoDao {
     private Connection conn;
 
     public ProdutoDaoJDBC() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/mapdb";
-        String user = "developer";
-        String password = "123";
-        this.conn = DriverManager.getConnection(url, user, password);
+        this.conn = ConnectionFactory.getConnection();
     }
 
     @Override
